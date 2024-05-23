@@ -3,6 +3,25 @@
 // =============================================================================
 
 
+// Zometool additions
+
+#vzome-product-view {
+  border: 1px solid gray;
+  padding: 0;
+}
+
+.vzome-viewer-tips {
+    padding-block-end: 0.5rem;
+    font-style: italic;
+    font-size: medium;
+    display: flex;
+}
+
+.vzome-viewer-tips p {
+  margin: auto;
+}
+
+
 // Container
 // -----------------------------------------------------------------------------
 
@@ -476,3 +495,4 @@
         width: auto;
     }
 }
+
