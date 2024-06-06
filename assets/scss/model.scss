@@ -1,0 +1,42 @@
+// =============================================================================
+// Styling for model instructions
+// =============================================================================
+
+.zometool-model {
+  font-size: large;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 3fr 1fr 2fr 4fr;
+  grid-template-areas:
+    "viewer description"
+    "viewer difficulty"
+    "viewer products"
+    "viewer parts";
+}
+
+.zometool-model-description {
+  grid-area: description;
+}
+
+.zometool-model-difficulty {
+  grid-area: difficulty;
+}
+
+.zometool-instructions {
+  grid-area: viewer;
+}
+
+zometool-parts-required {
+  grid-area: parts;
+}
+
+zometool-covering-products {
+  grid-area: products;
+}
+
+.vzome-viewer-index-button {
+  border: 2px solid stencilColor("color-primaryDarker");
+  border-radius: 6px;
+  font-size: x-large;
+}
