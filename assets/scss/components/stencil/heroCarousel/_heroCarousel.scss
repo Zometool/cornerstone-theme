@@ -125,12 +125,12 @@
 
     .heroCarousel-image {
         height: 100%;
-        object-fit: contain;
-        object-position: 50% 0%;
+        object-fit: cover;
+        // object-position: 50% 0%;
         width: 100%;
 
         @include breakpoint("small") {
-            object-position: 50% 50%;
+            // object-position: 50% 50%;
         }
     }
 
@@ -175,25 +175,25 @@
 }
 
 .heroCarousel-content {
-    background-color: rgba($carousel-bgColor, 1);
+    background-color: rgba($carousel-bgColor, 0.6);
     padding: spacing("half") spacing("single") (spacing("double"));
     text-align: center;
 
     @include breakpoint("small") {
         @include carouselOpaqueBackgrounds;
-        background-color: rgba($carousel-bgColor, 0.9);
+        background-color: rgba($carousel-bgColor, 0.6);
         left: 0;
         margin: 0 auto;
         max-height: 80%;
         overflow: auto;
-        padding: spacing("single") * 1.5;
-        padding: spacing("single");
+        // padding: spacing("single") * 1.5;
+        padding: spacing("half") 0;
         position: absolute;
         right: 0;
-        top: 50%;
+        bottom: 0;
         transform: translateY(-50%);
         width: remCalc(700px);
-        width: 70%;
+        width: 77%;
 
         &.heroCarousel-content--empty {
             background-color: transparent;
@@ -219,7 +219,7 @@
 
 .heroCarousel-description {
     color: $carousel-description-color;
-    font-size: fontSize("tiny");
+    font-size: fontSize("medium");
     margin: 0;
 
     @include breakpoint("small") {
