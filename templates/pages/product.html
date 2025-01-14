@@ -20,8 +20,12 @@ product:
     {{/each}}
 
     <div>
-        {{> components/products/product-view}}
-
+        {{#inArray product.category 'Models'}}
+          {{> components/products/model-view}}
+        {{else}}
+          {{> components/products/product-view}}
+        {{/inArray}}
+      
         {{{region name="product_below_content"}}}
 
         {{#if product.videos.list.length}}

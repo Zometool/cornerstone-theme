@@ -1,0 +1,32 @@
+{{#partial "page"}}
+
+<script type="module" src="https://www.vzome.com/modules/zometool.js"></script>
+
+{{{ stylesheet '/assets/css/model.css' }}}
+
+<main class="page">
+
+  <h1 class="page-heading">{{ product.title }}</h1>
+
+  <div class="zometool-model">
+
+    <div class="zometool-model-description">
+      {{{product.description}}}
+    </div>
+  
+    <div class="zometool-model-difficulty" data-difficulty="Easy">
+    </div>
+  
+    <zometool-instructions src="{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' "instructions"}}{{value}}{{/if}}{{/each}}{{/if}}">
+    </zometool-instructions>      
+  
+    <zometool-parts-required></zometool-parts-required>
+    <zometool-covering-products></zometool-covering-products>
+  
+  </div>
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

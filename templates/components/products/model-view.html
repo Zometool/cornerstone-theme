@@ -1,0 +1,52 @@
+{{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
+
+<script type="module" src="https://www.vzome.com/modules/zometool.js"></script>
+
+{{{ stylesheet '/assets/css/model.css' }}}
+
+<div class="productView"
+    data-event-type="product"
+    data-entity-id="{{product.id}}"
+    data-name="{{product.title}}"
+    data-product-category="
+    {{#each product.category}}
+        {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
+    {{/each}}"
+    data-product-brand="{{product.brand.name}}"
+    data-product-price="
+    {{#or customer (unless settings.hide_price_from_guests)}}
+        {{#if product.price.with_tax}}
+            {{product.price.with_tax.value}}
+        {{else}}
+            {{product.price.without_tax.value}}
+        {{/if}}
+    {{else}}
+        {{lang 'common.login_for_pricing'}}
+    {{/or}}"
+    data-product-variant="single-product-option">
+
+    <div class="zometool-model">
+
+      <div class="zometool-model-description">
+        {{{product.description}}}
+      </div>
+    
+      <div class="zometool-model-difficulty" data-difficulty="reallyHard">
+        {{#each product.custom_fields}}{{#if name '===' 'difficulty'}}{{value}}{{/if}}{{/each}}
+      </div>
+    
+      <zometool-instructions src="{{#each product.custom_fields}}{{#if name '===' 'instructions'}}{{value}}{{/if}}{{/each}}">
+      </zometool-instructions>      
+    
+      <zometool-parts-required></zometool-parts-required>
+      <zometool-covering-products></zometool-covering-products>
+    
+    </div>
+    
+</div>
+
+<div id="previewModal" class="modal modal--large" data-reveal>
+    {{> components/common/modal/modal-close-btn }}
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-header-title"></div>
+    <div class="loadingOverlay"></div>
+</div>
