@@ -3,6 +3,13 @@ category:
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
 ---
+
+{{!--
+  Variant of templates/pages/category for products with Model category.
+
+  This template drops the bulk of the product view and replaces it with a zometool model view.
+--}}
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
@@ -15,7 +22,7 @@ category:
 
 {{#partial "page"}}
 
-<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} -->
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#if category.image}}
     {{> components/common/responsive-img
         image=category.image
@@ -30,9 +37,14 @@ category:
 {{/unless}}
 {{{category.description}}}
 <div class="page">
+    {{#if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/models/sidebar}}
+        </aside>
+    {{/if}}
 
     <main class="page-content" id="product-listing-container">
-        {{> components/category/product-listing}}
+        {{> components/models/product-listing}}
     </main>
 
     <div class="page-region">
