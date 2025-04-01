@@ -36,7 +36,9 @@ export default class Category extends CatalogPage {
 
         compareProducts(this.context);
 
-        this.initFacetedSearch();
+        if ( this.context.template !== 'pages/custom/category/models' ) {
+          this.initFacetedSearch();
+        }
 
         if (!$('#facetedSearch').length) {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
