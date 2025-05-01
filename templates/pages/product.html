@@ -9,6 +9,15 @@ product:
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
 ---
+
+{{assignVar "isModel" 0}}
+{{#each product.custom_fields}}
+  {{#if name '===' "instructions"}}
+    {{assignVar 'isModel' 1}}
+  {{/if}}
+{{/each}}
+{{log '%%%%%%%%%%%%%%%%%%%%%%%%%% isModel' (getVar "isModel") }}
+
 {{inject 'productId' product.id}}
 
 {{#partial "page"}}
@@ -20,7 +29,7 @@ product:
     {{/each}}
 
     <div>
-        {{#inArray product.category 'Models'}}
+        {{#if (getVar "isModel")}}
           {{> components/models/model-view}}
         {{else}}
           {{> components/products/product-view}}
@@ -36,7 +45,7 @@ product:
           {{/all}}
   
           {{> components/products/tabs}}
-        {{/inArray}}
+        {{/if}}
       
     </div>
 
