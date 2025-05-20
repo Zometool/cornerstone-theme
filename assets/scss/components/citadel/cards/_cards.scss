@@ -167,3 +167,18 @@
         }
     }
 }
+
+.model-card {
+  margin-bottom: 1.8rem;
+}
+
+.model-img-container::after {
+  padding-bottom: 88%;
+}
+
+.model-image {
+  margin: inherit;
+  object-fit: cover;
+  width: 12rem;
+  height: 12rem;
+}

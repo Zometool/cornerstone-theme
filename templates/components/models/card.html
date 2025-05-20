@@ -3,7 +3,7 @@
 --}}
 
 <article
-    class="card
+    class="card model-card
     {{#if alternate}} card--alternate{{/if}}"
     data-test="card-{{id}}"
     data-event-type="{{event}}"
@@ -59,10 +59,10 @@
            aria-label="{{> components/products/product-info}}"
            data-event-type="product-click"
         >
-            <div class="card-img-container">
+            <div class="card-img-container model-img-container">
                 <img src="{{#each custom_fields}}{{#if name '===' 'instructions'}}{{#replace '.vZome' value}}.png{{/replace}}{{/if}}{{/each}}"
                   alt="{{lang 'products.card_default_image_alt'}}"
-                  class="{{#unless theme_settings.lazyload_mode '==' 'disabled'}}lazyload{{/unless}} card-image"
+                  class="{{#unless theme_settings.lazyload_mode '==' 'disabled'}}lazyload{{/unless}} card-image model-image"
                 {{#if theme_settings.lazyload_mode '==' 'lazyload'}}loading="lazy"{{/if}}
                 {{otherAttributes}} />
               
